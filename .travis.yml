@@ -11,16 +11,6 @@ install:
  - docker push aguyot/rp
  - docker push aguyot/api
 
-addons:
-  sonarcloud:
-    organization: "aguyot"
-    token:
-      secure: "LySJbePRbEZRtKWQVY0WWXdzUumq1tOQBAtiLvI8PmSJaKsE3yB0dyy3tQMBFUjq4tso7t2W5o3m7LORo+4gdM+XgrXKF1r5/v98QCG3C/HH3NkF9eKFDqXkIjl+TDLKt+g1kbzsk8sVJZVBaHfxuqtWnhJBWm2rUMwqAj0juFN6x6SH3yTayAKdleLniWGtsplBQEHjR+LVzmJUTCixGDFCrzKwUI1uGmkPqHuhvsz4haPmOB//TTQhlFzkdIWJ8dGoz3DRLStfMudBABw4d7Ps5Ma94/422pF68wkse0xbu+WQ0Q15wdOJe8dALzom1U/SGSEm/H2I5jIoA2rwxqdCmKWoT6258MzfQOdqfP5l50Y2tdm+fSxmNXizObXWbjvovLdTHbOOtbVKYy9h/MKTvoYeo5Ncd4+Ju1czMSx6HhhQKO+fkDgvhkAad13dnItzCQoDP2zqnIi9PIIKK8RFisC32IY/8AX1BobrSU6TYOj54GXXTW2yGHodUD4deHkpHj3c0gDK+J0Y0hq+YBIndosfIyajqj9htC60TtgYVHpr+0Dn5bt2PVvUfRLa2c6/gYYp9zqWZW4Xaq0iamBMd7szHbV/mhXi1HXCByCdR1YUmjNB3+5cPEWbsUSktt1pTk7fM2dArEB6EM1KewcQxR467bTMeL9wzacknbE="
-script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - cd ./API
-  - mvn install sonar:sonar -Dsonar.projectKey=AGUYOT_sample-application-student -Dsonar.branch.name=$CI_COMMIT_REF_NAME
-
 cache:
   directories:
     - "$HOME/.m2/repository"
