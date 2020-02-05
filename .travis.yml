@@ -3,6 +3,7 @@ language: java
 install:
  - docker-compose build
  - docker login -u $login -p $pwddock
+ - docker image ls
  - docker tag students_solution_api aguyot/api
  - docker tag students_solution_db aguyot/bdd
  - docker tag students_solution_http aguyot/rp
