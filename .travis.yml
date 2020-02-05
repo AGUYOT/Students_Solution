@@ -5,8 +5,8 @@ install:
  - docker login -u $login -p $pwddock
  - docker image ls
  - docker tag students_solution_api aguyot/api
- - docker tag students_solution_db aguyot/bdd
- - docker tag students_solution_http aguyot/rp
+ - docker tag students_solution_bdd aguyot/bdd
+ - docker tag students_solution_rp aguyot/rp
  - docker push aguyot/bdd
  - docker push aguyot/rp
  - docker push aguyot/api
