@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  api:
+    container_name: api
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    ports: 
+      - "8080:8080"
+    depends_on: 
+      - "bdd"
+  bdd:
+    container_name: bdd
+    build:
+      context: ./BDD
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+  rp:
+    container_name: rp
+    build:
+      context: ./RP
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on: 
+      - "bdd"

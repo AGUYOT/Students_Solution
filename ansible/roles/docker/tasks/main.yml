@@ -1,0 +1,40 @@
+---
+# tasks file for roles/docker
+- name: Init network
+  docker_network:
+    name: students
+    ipam_config:
+      - subnet: 172.18.0.0/24
+- name: Run BDD
+  docker_container:
+    name: bdd
+    recreate: yes
+    image: aguyot/bdd:1.0
+    restart: yes
+    ports:
+     - "5432:5432"
+    networks:
+      - name: students
+        ipv4_address: "172.18.0.2"
+- name: Run API
+  docker_container:
+    name: api
+    recreate: yes
+    image: aguyot/api:1.0
+    restart: yes
+    ports:
+     - "8080:8080"
+    networks:
+      - name: students
+        ipv4_address: "172.18.0.3"
+- name: Run RP
+  docker_container:
+    name: rp
+    recreate: yes
+    image: aguyot/rp:1.0
+    restart: yes
+    ports:
+     - "80:80"
+    networks:
+      - name: students
+        ipv4_address: "172.18.0.4"
