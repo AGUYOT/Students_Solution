@@ -1,9 +1,6 @@
 language: java
 
 install:
- - cd ./API
- - mvn clean verify
- - cd ../
  - docker-compose build
  - docker login -u $login -p $pwddock
  - docker tag students_solution_api aguyot/api
@@ -17,8 +14,7 @@ addons:
   sonarcloud:
     organization: "aguyot"
     token:
-      secure: "nd3uH/r0y9m6rJ3d2NCPOXwjrkrbxEXVSa2JHvWTO4nUlIDMSq2qIq6tOVdBUeVzK3fJTlECZbK/joLqErJwFJP1MMY6WfGAIz5U6OY6Jj+pg3is9lJ6RN47cVw4VHS/dM1FpPyYtq9IaNtMYVW+gMe/qJlt1n2XENyYo6x19y26pgpTEZwtzmLdMRXXqXMw91h97wyPTBjVuj4fAKjEPQQZqoGvodVAsYfcga5GaCB+EjIOiqnWWJkqGVWWaEADp3JqZQdlrHz2Gn0hYaQn8a6jnVSy1Yd0UWSq7lBo1A4IxbNuCayzTYGZo0lvAqqpaS0hCgjMy39Iva/1DTTKNn7CC4pKwHJ0mxU1S5JDqdX3RpITP0Hgt3XkfapORSY/eeuDbYOz6QXzs6Lg3mCFWj4y1oPmcQMEUUxd2HkZa5SQroMSEFqDvulkLwbuWiVSCiHXfVou+qgcDLgGxWlllyZX1lqSDC8xkPYu4VPl+R+QrXCzvWd7Q4/atAFVq9pYw9Xf+LlxRVDX3S8skYuQfo/4Maqb3XJtt3EONV/jk4WbqIQH8GMEJYPWQB084ZHsxACnyJ2JVlZsqQ7Kil3ZgW+P8X0Pmqn/zeSZMTE9mhteRWLOtl4vsjJTh4Gbk+X4MVcmkMwTIl/vsFVtpCxEAuAAUk4gcc83ZTIs/mHu6ME=" # encrypted value of your token
-
+      secure: "LySJbePRbEZRtKWQVY0WWXdzUumq1tOQBAtiLvI8PmSJaKsE3yB0dyy3tQMBFUjq4tso7t2W5o3m7LORo+4gdM+XgrXKF1r5/v98QCG3C/HH3NkF9eKFDqXkIjl+TDLKt+g1kbzsk8sVJZVBaHfxuqtWnhJBWm2rUMwqAj0juFN6x6SH3yTayAKdleLniWGtsplBQEHjR+LVzmJUTCixGDFCrzKwUI1uGmkPqHuhvsz4haPmOB//TTQhlFzkdIWJ8dGoz3DRLStfMudBABw4d7Ps5Ma94/422pF68wkse0xbu+WQ0Q15wdOJe8dALzom1U/SGSEm/H2I5jIoA2rwxqdCmKWoT6258MzfQOdqfP5l50Y2tdm+fSxmNXizObXWbjvovLdTHbOOtbVKYy9h/MKTvoYeo5Ncd4+Ju1czMSx6HhhQKO+fkDgvhkAad13dnItzCQoDP2zqnIi9PIIKK8RFisC32IY/8AX1BobrSU6TYOj54GXXTW2yGHodUD4deHkpHj3c0gDK+J0Y0hq+YBIndosfIyajqj9htC60TtgYVHpr+0Dn5bt2PVvUfRLa2c6/gYYp9zqWZW4Xaq0iamBMd7szHbV/mhXi1HXCByCdR1YUmjNB3+5cPEWbsUSktt1pTk7fM2dArEB6EM1KewcQxR467bTMeL9wzacknbE="
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn install sonar:sonar -Dsonar.projectKey=AGUYOT_sample-application-student -Dsonar.branch.name=$CI_COMMIT_REF_NAME
